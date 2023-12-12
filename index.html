@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-... (hash)" crossorigin="anonymous" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #FFF;
+            padding: 0.5em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            background-color: #777;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            color: #555;
+        }
+
+        nav a i {
+            margin-right: 5px;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        .conteudo-aba {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #configuracoes {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #configuracoes i {
+            margin-right: 5px;
+        }
+
+        #opcoes {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #opcoes label {
+            display: block;
+            margin-bottom: 10px;
+        }
+#download-btn {
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        #download-btn:hover {
+            background-color: #333;
+        }
+
+        #conteudo-home img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 6px;
+        }
+        #conteudo-home{
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 5px;
+        }
+        a{
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Miracle-Expasion</h1>
+    </header>
+
+    <nav>
+        <a href="#" id="aba1"><i class="fas fa-home"></i> Home</a>
+        <a href="#" id="aba2"><i class="fas fa-info-circle"></i> Info</a>
+    </nav>
+
+    <main>
+        <div id="abaHome" class="conteudo-aba">
+            <h2>Home</h2>
+            <p>Bem-vindo à página inicial!</p>
+            <div id="conteudo-home">
+                <img src="addon-logo.png" alt="Imagem do Mod">
+                <div>
+                    <h2>Miracle-Expasion</h2>
+                    <p>O Miracle-Expansion é um incrível addon para o Minecraft que traz para o mundo do jogo a magia e emoção de "Miraculous: As Aventuras de Ladybug".</p>
+                    <a href="https://www.mediafire.com/file/ol6zmmlcaenf5po/Miracler-Expansion.mcaddon/file" id="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+        <div id="abaInfo" class="conteudo-aba" style="display: none;">
+            <h2>Informações</h2>
+            <p>Aqui estão algumas informações úteis.</p>
+            <p>‎‎  </p>
+            <p>Youtube do Addon. <a href="https://youtube.com/@ShadyyBug?si=3qoby1DlRgDj55NL">Aqui</a></p>
+            <p>Discord do Addon. <a href="https://discord.com/invite/jbgf5EqC7u">Aqui</a></p>
+        </div>
+    <button id="configuracoes" onclick="mostrarOpcoes()"><i class="fas fa-cog"></i></button>
+
+    <div id="opcoes">
+        <label for="temaToggle">Tema:</label>
+        <label class="switch">
+            <input type="checkbox" id="temaToggle" onclick="mudarTema()">
+            <span class="slider"></span>
+        </label>
+        <p id="temaStatus">Tema Claro</p>
+    </div>
+    <footer>
+        © 2023 Miracle-Expasion. Todos os direitos reservados.
+    </footer>
+    </main>
+    <script>
+        document.getElementById("aba1").addEventListener("click", function() {
+            mostrarConteudo("abaHome");
+        });
+
+        document.getElementById("aba2").addEventListener("click", function() {
+            mostrarConteudo("abaInfo");
+        });
+
+        function mostrarConteudo(idConteudo) {
+            var abasConteudo = document.getElementsByClassName("conteudo-aba");
+            for (var i = 0; i < abasConteudo.length; i++) {
+                abasConteudo[i].style.display = "none";
+            }
+
+            document.getElementById(idConteudo).style.display = "block";
+        }
+        function mostrarOpcoes() {
+            var opcoes = document.getElementById("opcoes");
+            opcoes.style.display = (opcoes.style.display === "block") ? "none" : "block";
+        }
+
+        function mudarTema() {
+            var toggle = document.getElementById("temaToggle");
+            var status = document.getElementById("temaStatus");
+
+            if (toggle.checked) {
+                document.body.style.backgroundColor = "#111";
+                status.innerHTML = "Tema Escuro";
+            } else {
+                document.body.style.backgroundColor = "#fff";
+                status.innerHTML = "Tema Claro";
+            }
+        }
+    </script>
+
+</body>
+</html>
